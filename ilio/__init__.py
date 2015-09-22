@@ -22,3 +22,8 @@ def append(path, content, mode='a'):
     append content to file. default mode is 'a'
     '''
     write(path, content, mode)
+
+
+fread = read
+fwrite = write
+fappend = append
