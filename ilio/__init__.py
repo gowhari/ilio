@@ -1,27 +1,28 @@
-def read(path, mode='r'):
+def read(path, *args, **kwargs):
     '''
-    read and return content of file. default mode is 'r'.
+    read and return content of file.
     '''
-    f = open(path, mode)
-    content = f.read()
-    f.close()
-    return content
+    with open(path, *args, **kwargs) as f:
+        return f.read()
 
 
-def write(path, content, mode='w'):
+def write(path, content, *args, **kwargs):
     '''
-    write content to file. default mode is 'w'
+    write content to file.
     '''
-    f = open(path, mode)
-    f.write(content)
-    f.close()
+    if len(args) == 0 and 'mode' not in kwargs:
+        args = ('w',)
+    with open(path, *args, **kwargs) as f:
+        f.write(content)
 
 
-def append(path, content, mode='a'):
+def append(path, content, *args, **kwargs):
     '''
-    append content to file. default mode is 'a'
+    append content to file.
     '''
-    write(path, content, mode)
+    if len(args) == 0 and 'mode' not in kwargs:
+        args = ('a',)
+    write(path, content, *args, **kwargs)
 
 
 fread = read
