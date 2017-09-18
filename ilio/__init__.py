@@ -2,19 +2,16 @@ def read(path, mode='r'):
     '''
     read and return content of file. default mode is 'r'.
     '''
-    f = open(path, mode)
-    content = f.read()
-    f.close()
-    return content
+    with open(path, mode) as f:
+        return f.read()
 
 
 def write(path, content, mode='w'):
     '''
     write content to file. default mode is 'w'
     '''
-    f = open(path, mode)
-    f.write(content)
-    f.close()
+    with open(path, mode) as f:
+        f.write(content)
 
 
 def append(path, content, mode='a'):
