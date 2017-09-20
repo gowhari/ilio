@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='ilio',
-      version='0.3.0',
+      version='0.4.0',
       description='inline io: just one function call instead of file open(), read(), close()',
       long_description=open('README.rst').read(),
       url='https://github.com/gowhari/ilio',
